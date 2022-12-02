@@ -3,12 +3,12 @@
      <h1 id="colorlib-logo"><a href="index.html">elen<span>.</span></a></h1>
      <nav id="colorlib-main-menu" role="navigation">
          <ul>
-             <li class="colorlib-active"><a href="index.html">Home</a></li>
-             <li><a href="photography.html">Photography</a></li>
-             <li><a href="travel.html">Travel</a></li>
-             <li><a href="fashion.html">Fashion</a></li>
-             <li><a href="about.html">About</a></li>
-             <li><a href="contact.html">Contact</a></li>
+             <li <?php if (!isset($_GET['p']) || $_GET['p'] == 'home') : ?> class="colorlib-active" <?php endif; ?>><a href="/?p=home">Home</a></li>
+             <li <?php if (isset($_GET['p']) && $_GET['p'] == 'photography') : ?> class="colorlib-active" <?php endif; ?>><a href="/?p=photography">Photography</a></li>
+             <li <?php if (isset($_GET['p']) && $_GET['p'] == 'travel') : ?> class="colorlib-active" <?php endif; ?>><a href="/?p=travel">Travel</a></li>
+             <li <?php if (isset($_GET['p']) && $_GET['p'] == 'fashion') : ?> class="colorlib-active" <?php endif; ?>><a href="/?p=fashion">Fashion</a></li>
+             <li <?php if (isset($_GET['p']) && $_GET['p'] == 'about') : ?> class="colorlib-active" <?php endif; ?>><a href="/?p=about">About</a></li>
+             <li <?php if (isset($_GET['p']) && $_GET['p'] == 'contact') : ?> class="colorlib-active" <?php endif; ?>><a href="/?p=contact">Contact</a></li>
          </ul>
      </nav>
 
@@ -16,10 +16,14 @@
          <p>
              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
              Copyright &copy;
+
              <script>
                  document.write(new Date().getFullYear());
              </script> All rights reserved | This template is
-             made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+             made with
+             <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+
+
          <ul>
              <li><a href="#"><i class="icon-facebook"></i></a></li>
              <li><a href="#"><i class="icon-twitter"></i></a></li>
