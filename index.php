@@ -37,6 +37,19 @@ require($_SERVER['DOCUMENT_ROOT'] . '/partials/header.php');
                 case 'contact':
                     $page = 'contact';
                     break;
+
+                case 'login':
+                    $page = 'login';
+                    break;
+
+                case 'register':
+                    $page = 'register';
+                    break;
+
+                case 'logout':
+                    $page = 'logout';
+                    break;
+
                 default:
                     $page = 'home';
                     break;

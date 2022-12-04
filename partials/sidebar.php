@@ -1,6 +1,17 @@
+ <?php
+    $username = "elen";
+    if (isset($_COOKIE['user'])) {
+        $userSQL = 'SELECT * FROM users WHERE id=' . $_COOKIE['user'];
+        $userResult = $conn->query($userSQL);
+        if ($userResult) {
+            $user = $userResult->fetch_assoc();
+            $username = $user['username'];
+        }
+    }
+    ?>
  <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
  <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
-     <h1 id="colorlib-logo"><a href="/?p=home">elen<span>.</span></a></h1>
+     <h1 id="colorlib-logo"><a href="/?p=home"><?php echo $username; ?><span>.</span></a></h1>
      <nav id="colorlib-main-menu" role="navigation">
          <ul>
              <li <?php if (!isset($_GET['p']) || $_GET['p'] == 'home') : ?> class="colorlib-active" <?php endif; ?>><a href="/?p=home">Home</a></li>
@@ -9,6 +20,23 @@
              <li <?php if (isset($_GET['p']) && $_GET['p'] == 'fashion') : ?> class="colorlib-active" <?php endif; ?>><a href="/?p=fashion">Fashion</a></li>
              <li <?php if (isset($_GET['p']) && $_GET['p'] == 'about') : ?> class="colorlib-active" <?php endif; ?>><a href="/?p=about">About</a></li>
              <li <?php if (isset($_GET['p']) && $_GET['p'] == 'contact') : ?> class="colorlib-active" <?php endif; ?>><a href="/?p=contact">Contact</a></li>
+
+             <?php
+                $session = isset($_SESSION["user"]) && $_SESSION["user"];
+                $cookie = isset($_COOKIE["user"]) && $_COOKIE["user"];
+                if ($session || $cookie != null) {
+                ?>
+                 <li <?php if (isset($_GET['p']) && $_GET['p'] == 'logout') : ?> class="colorlib-active" <?php endif; ?>><a href="/?p=logout">Logout</a></li>
+             <?php
+                } else {
+                ?>
+                 <li <?php if (isset($_GET['p']) && $_GET['p'] == 'login') : ?> class="colorlib-active" <?php endif; ?>><a href="/?p=login">Sing in</a></li>
+                 <li <?php if (isset($_GET['p']) && $_GET['p'] == 'register') : ?> class="colorlib-active" <?php endif; ?>><a href="/?p=register">Register</a></li>
+             <?php
+                }
+                ?>
+
+
          </ul>
      </nav>
 
