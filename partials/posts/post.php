@@ -8,7 +8,12 @@ if ($result = $conn->query($sql)) :
         $categoryResult = $conn->query($categorySQL);
         $category = $categoryResult->fetch_assoc();
 ?>
-
+        <!-- 
+    1. зроити посилання на лайк (окрема сторінка, на яку ми будем посилатися за допомогою аякс)
+    2. зробити перевірку чм є запис в базі даних постом і користувачем
+       - якщо є видаляти лайк і повертати результат що лайк видалено
+       - інакше додавати запис і повертати що запис створено
+ -->
         <div class="col-md-4">
             <div class="blog-entry ftco-animate">
                 <a href="#" class="img img-2" style="background-image: url(<?php echo $row['preview'] ?>);"></a>
@@ -18,13 +23,13 @@ if ($result = $conn->query($sql)) :
                     <h3 class="mb-4"><a href="#"><?php echo $row['title'] ?></a></h3>
                     <p class="mb-4"><?php echo $row['description'] ?></p>
 
-                    <!--    <div class="author mb-4 d-flex align-items-center">
+                    <div class="author mb-4 d-flex align-items-center">
                         <a href="#" class="img" style="background-image: url(assets/images/person_1.jpg);"></a>
                         <div class="ml-3 info">
                             <span>Written by</span>
                             <h3><a href="#">Dave Lewis</a>, <span>Nov. 28, 2018</span></h3>
                         </div>
-                    </div> -->
+                    </div>
 
                     <div class="meta-wrap align-items-center">
                         <div class="half order-md-last">
