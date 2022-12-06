@@ -11,7 +11,14 @@
     ?>
  <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
  <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
-     <h1 id="colorlib-logo"><a href="/?p=home"><?php echo $username; ?><span>.</span></a></h1>
+     <h1 id="colorlib-logo"><a href="/?p=home"> <?php
+                                                if (isset($_COOKIE['user'])) {
+                                                    echo $user['username'];
+                                                } else {
+                                                    echo 'Your Name';
+                                                }
+                                                ?>
+             <span>.</span></a></h1>
      <nav id="colorlib-main-menu" role="navigation">
          <ul>
              <li <?php if (!isset($_GET['p']) || $_GET['p'] == 'home') : ?> class="colorlib-active" <?php endif; ?>><a href="/?p=home">Home</a></li>

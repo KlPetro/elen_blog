@@ -6,8 +6,12 @@ if (isset($_POST["submit"])) {
     $result = $conn->query($sql);
 
     $user = $result->fetch_assoc();
-    setcookie("user", $user['id'], time() + 3600 * 24, "/");
-    header("Location: /");
+    if ($user != NULL) {
+        setcookie("user", $user['id'], time() + 3600 * 24, "/");
+        header("Location: /");
+    } else {
+        header("Location: /?p=register");
+    }
 }
 
 ?>
