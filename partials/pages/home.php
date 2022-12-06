@@ -9,7 +9,7 @@ if (isset($_COOKIE['user'])) {
     <div class="overlay"></div>
     <div class="js-fullheight d-flex justify-content-center align-items-center">
         <div class="col-md-8 text text-center">
-            <div class="img mb-4" style="background-image: url(
+            <div class="avatar img mb-4" style="background-image: url(
                 <?php
                 if (isset($_COOKIE['user'])) {
                     if (empty($user['avatar'])) {
@@ -19,7 +19,15 @@ if (isset($_COOKIE['user'])) {
                 } else {
                     echo 'assets/images/avatar.jpg';
                 }
-                ?> );"></div>
+                ?> );">
+                <div class="blockcentr">
+                    <p>New photo</p>
+                    <form action="" method="post">
+                        <input class="w-10 btn btn-small btn-primary" type="file" name="file">
+                        <input class="w-10 btn btn-small btn-primary" type="submit" value="Save">
+                    </form>
+                </div>
+            </div>
             <div class="desc">
                 <h2 class="subheading">Hello I'm</h2>
                 <h1 class="mb-4">

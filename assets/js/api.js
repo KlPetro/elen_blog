@@ -11,3 +11,9 @@ $(".likeBtn").on("click", function (e) {
     that.find("b").text(data.count);
   });
 });
+
+$(document).ready(function () {
+  $(".avatar").click(function () {
+    $(".blockcentr").slideToggle("2000");
+  });
+});
