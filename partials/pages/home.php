@@ -10,7 +10,11 @@ if (isset($_COOKIE['user'])) {
     <div class="js-fullheight d-flex justify-content-center align-items-center">
         <div class="col-md-8 text text-center">
             <div class="img mb-4" style="background-image: url(
-                <?php if (isset($_COOKIE['user'])) {
+                <?php
+                if (isset($_COOKIE['user'])) {
+                    if (empty($user['avatar'])) {
+                        echo 'assets/images/avatar.jpg';
+                    }
                     echo $user['avatar'];
                 } else {
                     echo 'assets/images/avatar.jpg';

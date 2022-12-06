@@ -16,12 +16,18 @@ if (isset($_POST["submit"])) {
 
 ?>
 
-<form method="post">
-    <p>Login: <br>
-        <input type="text" name="login">
-    </p>
-    <p>Password: <br>
-        <input type="password" name="password">
-    </p>
-    <p><input type="submit" name="submit" value="Login"></p>
+
+
+
+<form action="#" method="POST">
+    <h1 class="h3 mb-3 fw-normal">Sing In</h1>
+    <div class="form-floating">
+        <input type="text" class="form-control" id="floatingName" name="login" placeholder="Username">
+    </div>
+
+    <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
+    </div>
+
+    <button class="w-100 btn btn-small btn-primary" type="submit" name="submit" value="Login">Sign in</button>
 </form>

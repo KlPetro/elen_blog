@@ -23,10 +23,6 @@ if (!empty($_POST)) {
     <div class="form-floating">
         <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
     </div>
-    <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" value="remember-me"> Remember me
-        </label>
-    </div>
+
     <button class="w-100 btn btn-small btn-primary" type="submit">Sign in</button>
 </form>
