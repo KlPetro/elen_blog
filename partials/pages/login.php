@@ -1,16 +1,25 @@
 <?php
+
+
+
+
+
+
+
+
 if (isset($_POST["submit"])) {
     $login = $_POST['login'];
     $password = $_POST['password'];
-    $sql = "SELECT * FROM users WHERE `username` = '$login' AND `password` = '$password'";
+    $sql = "SELECT * FROM users WHERE `username` = '$login'";
     $result = $conn->query($sql);
 
     $user = $result->fetch_assoc();
-    if ($user != NULL) {
+    var_dump($user);
+    if (password_verify($password, $user["password"])) {
         setcookie("user", $user['id'], time() + 3600 * 24, "/");
         header("Location: /");
     } else {
-        header("Location: /?p=register");
+        echo ('Дані введено невірно');
     }
 }
 

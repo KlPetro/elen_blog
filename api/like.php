@@ -1,7 +1,9 @@
 <?php
 
 if (isset($_POST['post_id'])) {
-    if ($_COOKIE['user']) {
+
+    if (isset($_COOKIE['user'])) {
+
         $userSQL = 'SELECT * FROM users WHERE id=' . $_COOKIE['user'];
         $userResult = $conn->query($userSQL);
 
@@ -24,9 +26,9 @@ if (isset($_POST['post_id'])) {
                     echo json_encode(['status' => 'liked', 'count' => 2]);
                 }
             }
-        } else {
-            echo 'no login';
         }
+    } else {
+        echo "no_login";
     }
 } else {
     echo "Error";

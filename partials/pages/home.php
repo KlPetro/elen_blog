@@ -63,3 +63,11 @@ if (isset($_COOKIE['user'])) {
         </div>
     </div>
 </section>
+
+
+<div class="no-likes img mb-4">
+    <div class="blockcentr">
+
+        <h1>hello</h1>
+    </div>
+</div>

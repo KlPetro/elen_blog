@@ -1,6 +1,8 @@
 <?php
+
+
 if (!empty($_POST)) {
-    $sql = "INSERT INTO `users` (`username`, `lastname`, `password`) VALUES ('" . $_POST['username'] . "','" . $_POST['lastname'] . "','" . $_POST['password'] . "')";
+    $sql = "INSERT INTO `users` (`username`, `lastname`, `password`) VALUES ('" . $_POST['username'] . "','" . $_POST['lastname'] . "','" . password_hash($_POST['password'], PASSWORD_BCRYPT) . "')";
     if (mysqli_query($conn, $sql)) {
         echo "New record created successfully";
         header("Location: /");

@@ -48,10 +48,9 @@ if ($result = $conn->query($sql)) :
 
                                 <span class="likeBtn
                                 <?php
-                                if (isset($_COOKIE['user'])) {
-                                    if ($likeUserResult->fetch_assoc()['total'] > 0) {
-                                        echo "liked";
-                                    }
+
+                                if (isset($likeUserResult) && $likeUserResult->fetch_assoc()['total'] > 0) {
+                                    echo "liked";
                                 }
                                 ?>
                                 " data-id="<?php echo $row['id']; ?>"><i class="icon-heart"></i><b><?php echo $likesResult->fetch_assoc()['total']; ?></b></span>
